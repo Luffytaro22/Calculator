@@ -8,16 +8,18 @@ let ce = document.querySelector('#ce');
 let output = document.querySelector('output');
 let buttons = document.querySelectorAll('button');
 let numbers = [];
+let operators = [];
 let auxiliarOutput = "";
 buttons.forEach((button) => button.addEventListener('click', () =>{
     if(parseFloat(button.value) || button.value === "0" || button.value === "."){
         output.value = output.value.concat(button.value);
     }else{
+        operators.push(button.value);
         numbers.push(Number(output.value.replace(auxiliarOutput, "")));
         output.value = output.value.concat(button.value);
         auxiliarOutput = output.value;
     }
-    console.log(numbers)
+ 
 }));
 
 function operate(operator, firstNumber, secondNumber){
