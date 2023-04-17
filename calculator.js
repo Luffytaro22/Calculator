@@ -12,6 +12,13 @@ let operators = [];
 let auxiliarOutput = "";
 let result, last;
 
+function reload(){
+    output.value = "";
+    numbers = [];
+    operators = [];
+    buttons.forEach((button) => button.addEventListener('click', handler));
+}
+
 function buttonClickHandler(button) {
     if (button.value === "ce") {
       last = output.value.charAt(output.value.length - 1);
@@ -55,7 +62,7 @@ function buttonClickHandler(button) {
   }
   
   buttons.forEach((button) => button.addEventListener('click', handler));
-  
+  clear.addEventListener('click', reload);
 
 function operate(operator, firstNumber, secondNumber){
     switch(operator){
