@@ -1,10 +1,5 @@
-let firstNumber;
-let operator;
-let secondNumber;
-let buttonNumbers = document.querySelectorAll('.buttonNumbers');
-let buttonOperators = document.querySelectorAll('.buttonOperators');
+
 let clear = document.querySelector('#clear');
-let ce = document.querySelector('#ce');
 let output = document.querySelector('output');
 let buttons = document.querySelectorAll('button');
 let numbers = [];
