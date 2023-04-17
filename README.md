@@ -1,4 +1,6 @@
 # Calculator
 A Classic calculator made with HTML, CSS and Javascript. 
 <br>
-Part of The Odin Project.
+Inspiration of The Odin Project.
+<br>
+https://luffytaro22.github.io/Calculator/
