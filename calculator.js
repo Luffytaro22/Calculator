@@ -10,6 +10,7 @@ let buttons = document.querySelectorAll('button');
 let numbers = [];
 let operators = [];
 let auxiliarOutput = "";
+let result;
 buttons.forEach((button) => button.addEventListener('click', () =>{
     if(parseFloat(button.value) || button.value === "0" || button.value === "."){
         output.value = output.value.concat(button.value);
@@ -18,8 +19,18 @@ buttons.forEach((button) => button.addEventListener('click', () =>{
         numbers.push(Number(output.value.replace(auxiliarOutput, "")));
         output.value = output.value.concat(button.value);
         auxiliarOutput = output.value;
+        if(numbers.length >= 2){
+            result = operate(operators[0], numbers[0], numbers[1]);
+            numbers.shift();
+            numbers.shift();
+            numbers.unshift(result);
+            operators.shift();
+        }
+        if(button.value === "="){
+            output.value = numbers[0]; return;
+        }
     }
- 
+    
 }));
 
 function operate(operator, firstNumber, secondNumber){
@@ -28,10 +39,11 @@ function operate(operator, firstNumber, secondNumber){
             return add(firstNumber, secondNumber);
         case "-":
             return substract(firstNumber, secondNumber);
-        case "*":
+        case "x":
             return multiply(firstNumber, secondNumber);
-        case "/":
+        case "÷":
             return divide(firstNumber, secondNumber);
+        
     }
 
 }
