@@ -39,8 +39,12 @@ function buttonClickHandler(button) {
         auxiliarOutput = output.value;
         if (numbers.length >= 2) {
           result = operate(operators[0], numbers[0], numbers[1]);
-          numbers.shift();
-          numbers.shift();
+          if(operators[0] === "√"){
+            numbers.shift();
+          }else{
+            numbers.shift();
+            numbers.shift();
+          }
           numbers.unshift(result);
           operators.shift();
         }
@@ -69,7 +73,8 @@ function operate(operator, firstNumber, secondNumber){
             return multiply(firstNumber, secondNumber);
         case "÷":
             return divide(firstNumber, secondNumber);
-        
+        case "√":
+            return root(firstNumber);
     }
 
 }
@@ -87,4 +92,8 @@ function multiply(n1, n2){
 
 function divide(n1, n2){
     return n1 / n2;
+}
+
+function root(n1){
+  return Math.sqrt(n1);
 }
