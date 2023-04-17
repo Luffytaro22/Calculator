@@ -3,7 +3,16 @@ let operator;
 let secondNumber;
 
 function operate(operator, firstNumber, secondNumber){
-    add(firstNumber, secondNumber);
+    switch(operator){
+        case "+":
+            return add(firstNumber, secondNumber);
+        case "-":
+            return substract(firstNumber, secondNumber);
+        case "*":
+            return multiply(firstNumber, secondNumber);
+        case "/":
+            return divide(firstNumber, secondNumber);
+    }
 
 }
 function add(n1, n2){
