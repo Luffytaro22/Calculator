@@ -12,23 +12,32 @@ let operators = [];
 let auxiliarOutput = "";
 let result;
 buttons.forEach((button) => button.addEventListener('click', () =>{
+    if(button.value === "ce"){
+        output.value = output.value.substring(0, output.value.length-1);
+        numbers.pop();
+    }
     if(parseFloat(button.value) || button.value === "0" || button.value === "."){
         output.value = output.value.concat(button.value);
-    }else{
-        operators.push(button.value);
-        numbers.push(Number(output.value.replace(auxiliarOutput, "")));
-        output.value = output.value.concat(button.value);
-        auxiliarOutput = output.value;
-        if(numbers.length >= 2){
-            result = operate(operators[0], numbers[0], numbers[1]);
-            numbers.shift();
-            numbers.shift();
-            numbers.unshift(result);
-            operators.shift();
+    }else {
+        if(button.value === "ce" || button.value === "clear"){
+            output.value = output.value;
+        }else{
+            operators.push(button.value);
+            numbers.push(Number(output.value.replace(auxiliarOutput, "")));
+            output.value = output.value.concat(button.value);
+            auxiliarOutput = output.value;
+            if(numbers.length >= 2){
+                result = operate(operators[0], numbers[0], numbers[1]);
+                numbers.shift();
+                numbers.shift();
+                numbers.unshift(result);
+                operators.shift();
+            }
+            if(button.value === "="){
+                output.value = numbers[0]; return;
+            }
         }
-        if(button.value === "="){
-            output.value = numbers[0]; return;
-        }
+        
     }
     
 }));
