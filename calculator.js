@@ -7,10 +7,17 @@ let clear = document.querySelector('#clear');
 let ce = document.querySelector('#ce');
 let output = document.querySelector('output');
 let buttons = document.querySelectorAll('button');
-let operation;
+let numbers = [];
+let auxiliarOutput = "";
 buttons.forEach((button) => button.addEventListener('click', () =>{
-    output.value = output.value.concat(button.value);
-    operation = output.value;
+    if(parseFloat(button.value) || button.value === "0" || button.value === "."){
+        output.value = output.value.concat(button.value);
+    }else{
+        numbers.push(Number(output.value.replace(auxiliarOutput, "")));
+        output.value = output.value.concat(button.value);
+        auxiliarOutput = output.value;
+    }
+    console.log(numbers)
 }));
 
 function operate(operator, firstNumber, secondNumber){
