@@ -124,6 +124,7 @@ If you like this project please give it a star ⭐️
 
 I would like to give credits to the following:
 * **Microverse** for this readme template.
+* **The Odin Project** for the idea.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
